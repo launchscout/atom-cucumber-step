@@ -2,10 +2,9 @@
   "name": "cucumber-step",
   "main": "./lib/cucumber-step",
   "version": "0.0.0",
-  "private": true,
   "description": "A short description of your package",
   "activationEvents": ["cucumber-step:jump-to-step"],
-  "repository": "https://github.com/atom/cucumber-step",
+  "repository": "https://github.com/gaslight/atom-cucumber-step",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
