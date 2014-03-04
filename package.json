@@ -2,7 +2,7 @@
   "name": "cucumber-step",
   "main": "./lib/cucumber-step",
   "version": "0.1.0",
-  "description": "A short description of your package",
+  "description": "Jump to step from feature",
   "activationEvents": [
     "cucumber-step:jump-to-step"
   ],
