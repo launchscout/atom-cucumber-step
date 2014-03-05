@@ -1,7 +1,7 @@
 {
   "name": "cucumber-step",
   "main": "./lib/cucumber-step",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Jump to step from feature",
   "activationEvents": [
     "cucumber-step:jump-to-step"
