@@ -8,11 +8,11 @@ module.exports =
         @restOfLine = matchData[2]
 
     stepTypeRegex: ->
-      new RegExp "#{@firstWord}\(.*\)" if @firstWord
+      new RegExp "(Given|When|Then)\(.*\)"
 
     checkMatch: ({filePath, matches}) ->
       for match in matches
+        console.log("Searching in #{filePath}")
         regex = match.matchText.match(/^\w+\(\/(.*)\/\)/)[1]
-        console.log
         if @restOfLine.match(new RegExp(regex))
           return [filePath, match.range[0][0]]
