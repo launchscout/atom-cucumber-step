@@ -13,6 +13,7 @@ module.exports =
     checkMatch: ({filePath, matches}) ->
       for match in matches
         console.log("Searching in #{filePath}")
-        regex = match.matchText.match(/^\w+\(\/(.*)\/\)/)[1]
-        if @restOfLine.match(new RegExp(regex))
-          return [filePath, match.range[0][0]]
+        if match.matchText.match(/^\w+\(\/(.*)\/\)/)
+          regex = match.matchText.match(/^\w+\(\/(.*)\/\)/)[1]
+          if @restOfLine.match(new RegExp(regex))
+            return [filePath, match.range[0][0]]
