@@ -8,7 +8,7 @@ describe "jumping", ->
     it "should match right step types", ->
       expect("Given(/I have a cheese/)".match(@stepJumper.stepTypeRegex())).toBeTruthy()
     it "should not match wrong step types", ->
-      expect("When(/I have a cheese/)".match(@stepJumper.stepTypeRegex())).toBeFalsy()
+      expect("With(/I have a cheese/)".match(@stepJumper.stepTypeRegex())).toBeFalsy()
 
   describe "checkMatch", ->
     beforeEach ->
