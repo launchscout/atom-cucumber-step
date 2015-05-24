@@ -1,7 +1,8 @@
 # See https://atom.io/docs/latest/creating-a-package#menus for more details
 'context-menu':
-  '.overlayer':
-      'Enable cucumber-step': 'cucumber-step:toggle'
+  'atom-text-editor': [{
+    'label': 'Enable cucumber-step', 'command': 'cucumber-step:toggle'
+  }]
 
 'menu': [
   {

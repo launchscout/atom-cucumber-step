@@ -3,9 +3,10 @@
   "main": "./lib/cucumber-step",
   "version": "0.1.2",
   "description": "Jump to step from feature",
-  "activationEvents": [
-    "cucumber-step:jump-to-step"
-  ],
+  "activationCommands": {
+    "atom-workspace" : ["cucumber-step:jump-to-step"],
+    "atom-text-editor" : ["cucumber-step:jump-to-step"]
+  },
   "repository": "https://github.com/gaslight/atom-cucumber-step",
   "license": "MIT",
   "engines": {
