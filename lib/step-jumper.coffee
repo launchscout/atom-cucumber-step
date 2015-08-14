@@ -8,7 +8,7 @@ module.exports =
         @restOfLine = matchData[2]
 
     stepTypeRegex: ->
-      new RegExp "(Given|When|Then)\(.*\)"
+      new RegExp "(Given|When|Then|And)\(.*\)"
 
     checkMatch: ({filePath, matches}) ->
       for match in matches
