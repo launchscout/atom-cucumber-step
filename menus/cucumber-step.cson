@@ -1,13 +1,9 @@
 # See https://atom.io/docs/latest/creating-a-package#menus for more details
-'context-menu':
-  '.overlayer':
-      'Enable cucumber-step': 'cucumber-step:toggle'
-
 'menu': [
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'cucumber-step'
+      'label': 'Cucumber Step'
       'submenu': [
         { 'label': 'Jump to step', 'command': 'cucumber-step:jump-to-step' }
       ]
