@@ -3,10 +3,15 @@ StepJumper = require "../lib/step-jumper"
 describe "jumping", ->
   beforeEach ->
     @stepJumper = new StepJumper("  Given I have a cheese")
+    @interpolatedStepJumper = new StepJumper("  Given I have 2 \"blue\" 'cheeses'")
 
   describe "stepTypeRegex", ->
     it "should match right step types", ->
       expect("Given(/I have a cheese/)".match(@stepJumper.stepTypeRegex())).toBeTruthy()
+    it "should match quoted step types", ->
+      expect("Given('I have a cheese')".match(@stepJumper.stepTypeRegex())).toBeTruthy()
+    it "should match interpolated step types", ->
+      expect("Given('I have $digits \"$color\" '$objectType'')".match(@stepJumper.stepTypeRegex())).toBeTruthy()
     it "should not match wrong step types", ->
       expect("With(/I have a cheese/)".match(@stepJumper.stepTypeRegex())).toBeFalsy()
 
@@ -59,3 +64,14 @@ describe "jumping", ->
         matches: [@match]
     it "should return undefined", ->
       expect(@stepJumper.checkMatch(@scanMatch)).toEqual(undefined)
+
+  describe "checkMatch quoted", ->
+    beforeEach ->
+      @match =
+        matchText: "Given('I have $digits \"$color\" '$objectType'')"
+        range: [[20,0], [25, 0]]
+      @scanMatch =
+        filePath: "path/to/file"
+        matches: [@match]
+    it "should return file and line", ->
+      expect(@interpolatedStepJumper.checkMatch(@scanMatch)).toEqual(["path/to/file", 20])
