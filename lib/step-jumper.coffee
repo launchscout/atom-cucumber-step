@@ -5,7 +5,7 @@ module.exports =
       matchData = @line.match(/^\s*(\w+)\s+(.*)/)
       if matchData
         @firstWord = matchData[1]
-        @restOfLine = matchData[2]
+        @restOfLine = matchData[2].replace /^\s+|\s+$/g, ""
 
     stepTypeRegex: ->
       new RegExp "(Given|When|Then|And)\(.*\)"
