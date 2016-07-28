@@ -24,7 +24,7 @@ module.exports =
           return [filePath, match.range[0][0]]
 
     extractRegex: (matchText) ->
-      regexMatch = matchText.match(/\([^/]*\/(.*)\/[^,]*,.*\)/)
+      regexMatch = matchText.match(/\([^/]*\/(.*)\/.*\)/)
       if regexMatch
         return regexMatch[1]
       patternMatch = matchText.match(/("|')(.*)\1/)
