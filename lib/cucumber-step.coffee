@@ -13,7 +13,7 @@ module.exports =
       description: 'define your step defenitions path relative to the features folder'
       type :'array'
       default: ["**/features/step_definitions/**/*.rb",
--              "**/features/step_definitions/**/*.js"]
+               "**/features/step_definitions/**/*.js"]
 
   activate: ->
     @subscriptions = new CompositeDisposable
