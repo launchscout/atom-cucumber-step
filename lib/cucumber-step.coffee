@@ -1,7 +1,9 @@
 StepJumper = require './step-jumper'
+config = require './config'
 {CompositeDisposable} = require 'atom'
 
 module.exports =
+  config: config
   subscriptions: null
 
   activate: ->
@@ -14,8 +16,7 @@ module.exports =
     stepJumper = new StepJumper(currentLine)
     return unless stepJumper.firstWord
     options =
-      paths: ["**/features/step_definitions/**/*.rb",
-              "**/features/step_definitions/**/*.js"]
+      paths: atom.config.get('cucumber-step.searchPaths')
     atom.workspace.scan stepJumper.stepTypeRegex(), options, (match) ->
       if foundMatch = stepJumper.checkMatch(match)
         [file, line] = foundMatch
