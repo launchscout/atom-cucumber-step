@@ -23,9 +23,12 @@ describe "jumping", ->
       @match2 =
         matchText: "Given(/^I have a cheese$/)"
         range: [[20, 0], [25, 0]]
+      @match3 =
+        matchText: "Given(/^an escaped \/ is in this match$/)"
+        range: [[10, 0], [15, 0]]
       @scanMatch =
         filePath: "path/to/file"
-        matches: [@match1, @match2]
+        matches: [@match1, @match2, @match3]
     it "should return file and line", ->
       expect(@stepJumper.checkMatch(@scanMatch)).toEqual(["path/to/file", 20])
 
