@@ -1,8 +1,19 @@
+
 StepJumper = require './step-jumper'
+pkg = require '../package.json'
 {CompositeDisposable} = require 'atom'
 
 module.exports =
+
   subscriptions: null
+
+  config:
+    step_path:
+      title: 'step-definitions-path'
+      description: 'define your step defenitions path relative to the features folder'
+      type :'array'
+      default: ["**/features/step_definitions/**/*.rb",
+               "**/features/step_definitions/**/*.js"]
 
   activate: ->
     @subscriptions = new CompositeDisposable
@@ -14,8 +25,7 @@ module.exports =
     stepJumper = new StepJumper(currentLine)
     return unless stepJumper.firstWord
     options =
-      paths: ["**/features/step_definitions/**/*.rb",
-              "**/features/step_definitions/**/*.js"]
+      paths:   atom.config.get(pkg.name + '.step_path')
     atom.workspace.scan stepJumper.stepTypeRegex(), options, (match) ->
       if foundMatch = stepJumper.checkMatch(match)
         [file, line] = foundMatch
