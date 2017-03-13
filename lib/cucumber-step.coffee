@@ -15,7 +15,8 @@ module.exports =
     return unless stepJumper.firstWord
     options =
       paths: ["**/features/step_definitions/**/*.rb",
-              "**/features/step_definitions/**/*.js"]
+              "**/features/step_definitions/**/*.js",
+              "**/features/**/*.rb"]
     atom.workspace.scan stepJumper.stepTypeRegex(), options, (match) ->
       if foundMatch = stepJumper.checkMatch(match)
         [file, line] = foundMatch
