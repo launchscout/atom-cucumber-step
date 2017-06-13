@@ -20,7 +20,7 @@ module.exports =
       if foundMatch = stepJumper.checkMatch(match)
         [file, line] = foundMatch
         console.log("Found match at #{file}:#{line}")
-        atom.workspace.open(file).done (editor) -> editor.setCursorBufferPosition([line, 0])
+        atom.workspace.open(file).then (editor) -> editor.setCursorBufferPosition([line, 0])
 
   deactivate: ->
     @subscriptions.dispose()
